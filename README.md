@@ -1,8 +1,8 @@
-# Sistema para busca de informações atraves de um CEP
+# Aplicação de Consulta de Endereço via CEP
 
 O sistema é um cliente que consome dados de uma Api (ViaCep). O cliente faz uma requisição e a api manda um Json buscado em um DataBase. A aplicação descerializa o Json e mostra as informações na tela do frontend
 
-Linguagens e Tecnologias Utilizadas:
+### Linguagens e Tecnologias Utilizadas:
 
 * java
 * Spring boot MVC
@@ -38,9 +38,11 @@ Tela Frontend
 Possui validação para a quantidade de numeros do Cep
 <hr>
 
-## Como roda o Código.
+## Como rodar o Código.
 
-1) primeiro clone o repositório para a sua máquina
+1) Primeiro clone o repositório para a sua máquina
 2) Rode a aplicação
 3) No seu navegador digite:
-<pre><code>http://localhost:8080/FindCep?InfCep</code></pre>
+<pre><code>http://localhost:8080/FindCep</code></pre>
+
+<hr>
