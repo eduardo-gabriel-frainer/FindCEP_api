@@ -37,3 +37,10 @@ Tela Frontend
 <br>
 Possui validação para a quantidade de numeros do Cep
 <hr>
+
+## Como roda o Código.
+
+1) primeiro clone o repositório para a sua máquina
+2) Rode a aplicação
+3) No seu navegador digite:
+<pre><code>http://localhost:8080/FindCep?InfCep</code></pre>
