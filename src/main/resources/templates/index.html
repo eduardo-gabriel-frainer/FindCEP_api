@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Consultar CEP</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Consultar CEP</h1>
+
+    <form id="cepForm">
+      <input type="text" id="InfCep" name="InfCep" placeholder="Informe o CEP aqui:" />
+      <button type="button" onclick="buscarCep()">Buscar</button>
+    </form>
+
+    <br />
+
+    <div class="main_container">
+      <div class="input-group">
+        <label for="cep">Cep:</label>
+        <input type="text" id="cep" name="cep" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="logradouro">Logradouro:</label>
+        <input type="text" id="logradouro" name="logradouro" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="complemento">Complemento:</label>
+        <input type="text" id="complemento" name="complemento" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="bairro">Bairro:</label>
+        <input type="text" id="bairro" name="bairro" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="localidade">Localidade:</label>
+        <input type="text" id="localidade" name="localidade" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="uf">UF:</label>
+        <input type="text" id="uf" name="uf" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="ibge">IBGE:</label>
+        <input type="text" id="ibge" name="ibge" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="gia">GIA:</label>
+        <input type="text" id="gia" name="gia" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="ddd">DDD:</label>
+        <input type="text" id="ddd" name="ddd" disabled />
+      </div>
+
+      <div class="input-group">
+        <label for="siafi">SIAFI:</label>
+        <input type="text" id="siafi" name="siafi" disabled />
+      </div>
+    </div>
+
+    <script>
+      async function buscarCep() {
+        let cep = document.getElementById('InfCep').value
+      
+        if (cep.length !== 8) {
+          alert('Por favor, digite um CEP válido com 8 dígitos.')
+          return
+        }
+      
+        try {
+          // Realiza a requisição POST para o backend
+          let response = await fetch('/FindCep?cep=' + cep, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          })
+      
+          if (!response.ok) {
+            throw new Error('Erro na requisição!')
+          }
+      
+          let data = await response.json()
+      
+          // Preenche os campos com os dados retornados
+          document.getElementById('cep').value = data.cep
+          document.getElementById('cep').value = data.cep
+          document.getElementById('logradouro').value = data.logradouro
+          document.getElementById('complemento').value = data.complemento
+          document.getElementById('bairro').value = data.bairro
+          document.getElementById('localidade').value = data.localidade
+          document.getElementById('uf').value = data.uf
+          document.getElementById('ibge').value = data.ibge
+          document.getElementById('gia').value = data.gia
+          document.getElementById('ddd').value = data.ddd
+          document.getElementById('siafi').value = data.siafi
+        } catch (error) {
+          alert('Erro ao buscar o CEP! Verifique se o backend está rodando.')
+          console.error(error)
+        }
+      }
+    </script>
+  </body>
+</html>
