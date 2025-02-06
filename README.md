@@ -30,7 +30,7 @@ Requisição Java para a Api
 
 ![image](https://github.com/user-attachments/assets/57386078-6c4a-431b-8e98-ba297cb734d1)
 <br>
-Tela Frontend
+Tela Frontend (html, css, javaScript)
 <hr>
 
 ![image](https://github.com/user-attachments/assets/834ce495-91a3-452e-aa2c-a1d470ec71b5)
